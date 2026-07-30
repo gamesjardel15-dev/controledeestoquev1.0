@@ -55,6 +55,17 @@ public class TelaPrincipal extends JFrame {
 
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
+        
+        JMenu mnNewMenu = new JMenu("Inicio");
+        menuBar.add(mnNewMenu);
+        
+        JMenuItem mntmNewMenuItem = new JMenuItem("Dashboard");
+        mntmNewMenuItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		carregarPainel(new PainelDashboard());
+        	}
+        });
+        mnNewMenu.add(mntmNewMenuItem);
 
         JMenu menuProdutos = new JMenu("Produtos");
         menuBar.add(menuProdutos);

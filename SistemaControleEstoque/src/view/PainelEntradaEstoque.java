@@ -1,6 +1,8 @@
 package view;
 
 import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
 
 public class PainelEntradaEstoque extends JPanel {
 
@@ -10,6 +12,10 @@ public class PainelEntradaEstoque extends JPanel {
 	 * Create the panel.
 	 */
 	public PainelEntradaEstoque() {
+		setLayout(new BorderLayout(0, 0));
+		
+		JLabel lblNewLabel = new JLabel("Entrada Estoque");
+		add(lblNewLabel, BorderLayout.NORTH);
 
 	}
 
