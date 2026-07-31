@@ -1,17 +1,23 @@
 package model;
 
 public class Usuario {
-	
-	
-	
-	private int idUsuario;
+
+    private int idUsuario;
     private String nome;
     private String login;
+    private String senha;
     private String perfil;
     private boolean ativo;
 
     public Usuario() {
 
+    }
+
+    public Usuario(String nome, String login, String senha, String perfil) {
+        this.nome = nome;
+        this.login = login;
+        this.senha = senha;
+        this.perfil = perfil;
     }
 
     public Usuario(int idUsuario, String nome, String login, String perfil, boolean ativo) {
@@ -47,6 +53,16 @@ public class Usuario {
         this.login = login;
     }
 
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+
     public String getPerfil() {
         return perfil;
     }
@@ -54,6 +70,7 @@ public class Usuario {
     public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
+
 
     public boolean isAtivo() {
         return ativo;

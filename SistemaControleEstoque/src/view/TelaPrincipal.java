@@ -81,9 +81,10 @@ public class TelaPrincipal extends JFrame {
         JMenuItem itemListarProdutos = new JMenuItem("Listar Produtos");
         itemListarProdutos.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                carregarPainel(new PainelListarProdutos());
+                carregarPainel(new PainelListarProdutos(TelaPrincipal.this));
             }
         });
+
         menuProdutos.add(itemListarProdutos);
 
         JMenu menuClientes = new JMenu("Clientes");
@@ -131,6 +132,33 @@ public class TelaPrincipal extends JFrame {
             }
         });
         menuEstoque.add(itemSaidaEstoque);
+        
+        JMenu mnNewMenu_1 = new JMenu("Usuários");
+        menuBar.add(mnNewMenu_1);
+        
+        JMenuItem mntmNewMenuItem_1 = new JMenuItem("Editar Perfil");
+        mntmNewMenuItem_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		carregarPainel(new EditarPerfil());
+        	}
+        });
+        mnNewMenu_1.add(mntmNewMenuItem_1);
+        
+        JMenuItem mntmNewMenuItem_2 = new JMenuItem("Cadastrar Usuário");
+        mntmNewMenuItem_2.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		carregarPainel(new NovoUsuario());
+        	}
+        });
+        mnNewMenu_1.add(mntmNewMenuItem_2);
+        
+        JMenuItem mntmNewMenuItem_3 = new JMenuItem("Listar Usuários");
+        mntmNewMenuItem_3.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		carregarPainel(new ListarUsuarios());
+        	}
+        });
+        mnNewMenu_1.add(mntmNewMenuItem_3);
 
         JMenu menuSistema = new JMenu("Sistema");
         menuBar.add(menuSistema);
@@ -169,12 +197,13 @@ public class TelaPrincipal extends JFrame {
         carregarPainel(new PainelDashboard());
     }
 
-    private void carregarPainel(JPanel painel) {
+    public void carregarPainel(JPanel painel) {
         painelConteudo.removeAll();
         painelConteudo.add(painel, BorderLayout.CENTER);
         painelConteudo.revalidate();
         painelConteudo.repaint();
     }
+
 
     private void exibirUsuarioLogado() {
 
