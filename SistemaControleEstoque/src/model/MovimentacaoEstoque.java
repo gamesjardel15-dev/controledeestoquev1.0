@@ -9,18 +9,23 @@ public class MovimentacaoEstoque {
     private int idProduto;
     private String nomeProduto;
     private String tipo;
+    private String nrNotaFiscal;
     private int quantidade;
     private BigDecimal valorUnitario;
     private String observacao;
     private LocalDateTime criadoEm;
 
+    private String criadoEmFormatado;
+
     public MovimentacaoEstoque() {
 
     }
 
-    public MovimentacaoEstoque(int idProduto, String tipo, int quantidade, BigDecimal valorUnitario, String observacao) {
+    public MovimentacaoEstoque(int idProduto, String tipo, String nrNotaFiscal,
+                               int quantidade, BigDecimal valorUnitario, String observacao) {
         this.idProduto = idProduto;
         this.tipo = tipo;
+        this.nrNotaFiscal = nrNotaFiscal;
         this.quantidade = quantidade;
         this.valorUnitario = valorUnitario;
         this.observacao = observacao;
@@ -58,6 +63,14 @@ public class MovimentacaoEstoque {
         this.tipo = tipo;
     }
 
+    public String getNrNotaFiscal() {
+        return nrNotaFiscal;
+    }
+
+    public void setNrNotaFiscal(String nrNotaFiscal) {
+        this.nrNotaFiscal = nrNotaFiscal;
+    }
+
     public int getQuantidade() {
         return quantidade;
     }
@@ -88,5 +101,13 @@ public class MovimentacaoEstoque {
 
     public void setCriadoEm(LocalDateTime criadoEm) {
         this.criadoEm = criadoEm;
+    }
+
+    public String getCriadoEmFormatado() {
+        return criadoEmFormatado;
+    }
+
+    public void setCriadoEmFormatado(String criadoEmFormatado) {
+        this.criadoEmFormatado = criadoEmFormatado;
     }
 }

@@ -101,7 +101,7 @@ public class TelaPrincipal extends JFrame {
         JMenuItem itemListarClientes = new JMenuItem("Listar Clientes");
         itemListarClientes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                carregarPainel(new PainelListarClientes());
+            	carregarPainel(new PainelListarClientes(TelaPrincipal.this));
             }
         });
         menuClientes.add(itemListarClientes);

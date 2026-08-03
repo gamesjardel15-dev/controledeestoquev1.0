@@ -27,6 +27,7 @@ public class PainelEntradaEstoque extends JPanel {
     private JComboBox<Produto> comboProduto;
     private JTextField txtQuantidade;
     private JTextField txtValorUnitario;
+    private JTextField txtNrNotaFiscal;
     private JTextArea txtObservacao;
 
     public PainelEntradaEstoque() {
@@ -61,6 +62,14 @@ public class PainelEntradaEstoque extends JPanel {
         txtValorUnitario = new JTextField();
         txtValorUnitario.setBounds(260, 190, 150, 30);
         add(txtValorUnitario);
+
+        JLabel lblNrNotaFiscal = new JLabel("Nº Nota Fiscal");
+        lblNrNotaFiscal.setBounds(440, 165, 120, 20);
+        add(lblNrNotaFiscal);
+
+        txtNrNotaFiscal = new JTextField();
+        txtNrNotaFiscal.setBounds(440, 190, 160, 30);
+        add(txtNrNotaFiscal);
 
         JLabel lblObservacao = new JLabel("Observação");
         lblObservacao.setBounds(80, 240, 120, 20);
@@ -116,6 +125,7 @@ public class PainelEntradaEstoque extends JPanel {
 
         String quantidadeTexto = txtQuantidade.getText().trim();
         String valorTexto = txtValorUnitario.getText().trim().replace(",", ".");
+        String nrNotaFiscal = txtNrNotaFiscal.getText().trim();
         String observacao = txtObservacao.getText().trim();
 
         if (quantidadeTexto.isEmpty()) {
@@ -127,6 +137,12 @@ public class PainelEntradaEstoque extends JPanel {
         if (valorTexto.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Informe o valor unitário.");
             txtValorUnitario.requestFocus();
+            return;
+        }
+
+        if (nrNotaFiscal.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Informe o número da nota fiscal.");
+            txtNrNotaFiscal.requestFocus();
             return;
         }
 
@@ -149,6 +165,7 @@ public class PainelEntradaEstoque extends JPanel {
             MovimentacaoEstoque movimentacao = new MovimentacaoEstoque(
                     produtoSelecionado.getIdProduto(),
                     "ENTRADA",
+                    nrNotaFiscal,
                     quantidade,
                     valorUnitario,
                     observacao
@@ -172,6 +189,7 @@ public class PainelEntradaEstoque extends JPanel {
     private void limparCampos() {
         txtQuantidade.setText("");
         txtValorUnitario.setText("");
+        txtNrNotaFiscal.setText("");
         txtObservacao.setText("");
 
         if (comboProduto.getItemCount() > 0) {
