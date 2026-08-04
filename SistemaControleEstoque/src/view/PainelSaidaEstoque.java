@@ -98,7 +98,7 @@ public class PainelSaidaEstoque extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 registrarSaida();
                 
-                String nrNotaFiscal = txtNrNotaFiscal.getText().trim();
+               // String nrNotaFiscal = txtNrNotaFiscal.getText().trim();
 
             }
         });
