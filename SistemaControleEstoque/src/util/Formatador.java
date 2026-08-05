@@ -1,3 +1,4 @@
+
 package util;
 
 import java.math.BigDecimal;
@@ -6,13 +7,19 @@ import java.util.Locale;
 
 public class Formatador {
 
+    private static final Locale LOCALE_BRASIL =
+            Locale.forLanguageTag("pt-BR");
+
     public static String moeda(BigDecimal valor) {
+
         if (valor == null) {
             valor = BigDecimal.ZERO;
         }
 
-        // Utilizando a constante pronta para o Brasil ou Locale.of("pt", "BR")
-        NumberFormat formato = NumberFormat.getCurrencyInstance(Locale.of("pt", "BR"));
+        NumberFormat formato =
+                NumberFormat.getCurrencyInstance(LOCALE_BRASIL);
+
         return formato.format(valor);
     }
 }
+
